@@ -10,7 +10,7 @@ button{touch-action:manipulation}
 .team-control{color:#fff;font-size:.8rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em;display:grid;gap:3px}
 .team-control select,.wide-select{min-height:44px;border:2px solid #e3b734;border-radius:12px;padding:0 32px 0 12px;background:#fff;color:var(--ink);font-weight:800}
 .header-button{min-height:48px;padding:0 14px;border:2px solid #ffffffaa;border-radius:14px;background:#0c6fa6;color:white;font-weight:900;box-shadow:0 4px 0 #034064;white-space:nowrap}
-.game-shell{height:calc(100vh - 106px);min-height:590px;max-width:1500px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(390px,.82fr);gap:14px}
+.game-shell{min-height:calc(100vh - 106px);max-width:1500px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(390px,.82fr);gap:14px}
 .map-panel,.mission-panel{min-width:0;min-height:0;border-radius:24px;box-shadow:var(--shadow)}
 .map-panel{padding:13px;background:linear-gradient(145deg,#0a6790,#06476c);border:3px solid #7bd5e7;display:flex;flex-direction:column}
 .map-heading{height:48px;display:flex;align-items:center;justify-content:space-between;color:white;padding:0 6px 10px}
@@ -18,7 +18,7 @@ button{touch-action:manipulation}
 .eyebrow,.captain-label,.modal-kicker{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900;color:#fed24c}
 .saved-status{background:#d9ffe9;color:#126442;border-radius:20px;padding:7px 10px;font-size:.76rem;font-weight:900;white-space:nowrap}
 .saved-status.flash{animation:savedPop .7s ease}
-.map-stage{position:relative;flex:1;min-height:0;overflow:hidden;border-radius:17px;border:4px solid #f3d37b;background:#d0b36e}
+.map-stage{position:relative;flex:none;width:100%;aspect-ratio:3/2;overflow:hidden;border-radius:17px;border:4px solid #f3d37b;background:#d0b36e}
 .map-image{width:100%;height:100%;display:block;object-fit:cover}
 .route,.mission-nodes{position:absolute;inset:0;width:100%;height:100%}
 .route{display:none}
@@ -78,15 +78,15 @@ button{touch-action:manipulation}
 @keyframes fall{to{top:105%;transform:rotate(540deg)}}
 @media(max-width:1100px){
   .game-shell{grid-template-columns:minmax(0,1.08fr) minmax(375px,.92fr);padding:10px;gap:10px}
-  .brand-banner{height:76px;max-width:62vw}.game-header{height:100px}.game-shell{height:calc(100vh - 100px);min-height:590px}
+  .brand-banner{height:76px;max-width:62vw}.game-header{height:100px}.game-shell{min-height:calc(100vh - 100px)}
   .map-panel{padding:9px}.mission-scroll{padding:13px 14px}.mission-panel h2{font-size:1.3rem}.story{padding:8px 10px}.ribbon{margin-top:9px}.mission-scroll{height:calc(100% - 55px)}
 }
 @media(max-width:840px),(orientation:portrait){
   body{overflow:auto}.game-header{height:auto;min-height:96px;flex-wrap:wrap}.brand-banner{max-width:100%;height:auto;max-height:80px}.header-actions{width:100%}
-  .game-shell{height:auto;min-height:0;grid-template-columns:1fr}.map-stage{height:min(62vw,520px)}.mission-panel{min-height:610px}.teacher-button{position:fixed}
+  .game-shell{min-height:0;grid-template-columns:1fr}.map-stage{height:auto}.mission-panel{min-height:610px}.teacher-button{position:fixed}
 }
 @media(max-height:720px) and (orientation:landscape){
-  .game-header{height:92px;padding-block:6px}.brand-banner{height:72px}.game-shell{height:calc(100vh - 92px);padding:8px;gap:8px;min-height:540px}
+  .game-header{height:92px;padding-block:6px}.brand-banner{height:72px}.game-shell{padding:8px;gap:8px;min-height:calc(100vh - 92px)}
   .map-heading{height:39px}.map-legend{height:24px}.ribbon{height:40px;margin-top:8px}.mission-scroll{height:calc(100% - 48px);padding-top:10px}
   .story{font-size:.84rem}.choice{min-height:42px}.key-section{min-height:62px}.key-digit{height:44px}.mission-actions{margin-top:6px}.button{min-height:44px}
 }
