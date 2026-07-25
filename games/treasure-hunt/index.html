@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#063f70">
+  <title>Wonderland English School Treasure Hunt</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="game-header">
+    <img class="brand-banner" src="assets/images/treasure-hunt-banner.jpg" alt="Wonderland English School Treasure Hunt">
+    <div class="header-actions">
+      <label class="team-control">Team
+        <select id="teamSelect" aria-label="Choose your team">
+          <option>Red Parrots</option><option>Blue Sharks</option>
+          <option>Green Turtles</option><option>Golden Pirates</option>
+        </select>
+      </label>
+      <button id="soundButton" class="header-button" type="button" aria-pressed="true">🔊 Sound</button>
+    </div>
+  </header>
+
+  <main class="game-shell">
+    <section class="map-panel" aria-label="Treasure map and mission progress">
+      <div class="map-heading">
+        <div><span class="eyebrow">Adventure route</span><h1>Captain Wooby’s Map</h1></div>
+        <span id="savedStatus" class="saved-status" role="status">✓ Progress saved</span>
+      </div>
+      <div id="mapStage" class="map-stage">
+        <img class="map-image" src="assets/images/pirate-island-map.jpg" alt="Pirate island treasure map">
+        <svg id="routeSvg" class="route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <polyline id="routeLine" points=""></polyline>
+        </svg>
+        <div id="missionNodes" class="mission-nodes"></div>
+        <img id="wooby" class="wooby" src="assets/images/wooby-map.png" alt="Wooby standing at the current mission">
+      </div>
+      <div class="map-legend"><span><i class="dot done-dot"></i>Completed missions</span></div>
+    </section>
+
+    <section class="mission-panel" aria-labelledby="missionTitle">
+      <div class="ribbon"><span id="missionNumber">Mission 1 of 8</span></div>
+      <div class="mission-scroll">
+        <p class="captain-label">Captain Wooby’s challenge</p>
+        <h2 id="missionTitle">The Pirate’s Message</h2>
+        <div id="missionStory" class="story"></div>
+        <p id="answerInstruction" class="instruction">Choose the best answer:</p>
+        <div id="choices" class="choices" role="group" aria-label="Answer choices"></div>
+        <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+        <section id="keySection" class="key-section" aria-labelledby="keyHeading">
+          <div><h3 id="keyHeading">Treasure Key</h3><p id="keyHelp">Solve the puzzle to activate the key.</p></div>
+          <div id="keyInputs" class="key-inputs" aria-label="Three-digit treasure key">
+            <input class="key-digit" inputmode="numeric" maxlength="1" aria-label="First digit" disabled>
+            <input class="key-digit" inputmode="numeric" maxlength="1" aria-label="Second digit" disabled>
+            <input class="key-digit" inputmode="numeric" maxlength="1" aria-label="Third digit" disabled>
+          </div>
+        </section>
+        <div class="mission-actions">
+          <button id="hintButton" class="button hint-button" type="button">💡 Hint</button>
+          <button id="unlockButton" class="button unlock-button" type="button" disabled>🔒 Solve the puzzle</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="teacherButton" class="teacher-button" type="button" aria-label="Open teacher menu">⚙ Teacher</button>
+
+  <div id="teacherModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="teacherTitle" hidden>
+    <div class="modal-card teacher-card">
+      <button class="modal-close" data-close="teacherModal" type="button" aria-label="Close teacher menu">×</button>
+      <div id="pinView">
+        <p class="modal-kicker">Adults only</p><h2 id="teacherTitle">Teacher Menu</h2>
+        <label class="field-label" for="pinInput">Enter teacher PIN</label>
+        <input id="pinInput" class="pin-input" type="password" inputmode="numeric" maxlength="4" autocomplete="off">
+        <p id="pinFeedback" class="feedback"></p>
+        <button id="pinButton" class="button unlock-button" type="button">Open menu</button>
+      </div>
+      <div id="teacherView" hidden>
+        <p class="modal-kicker">Teacher controls</p><h2>Adventure Control Deck</h2>
+        <p id="teacherCurrent" class="teacher-current"></p>
+        <label class="field-label" for="missionJump">Jump to a mission for testing</label>
+        <select id="missionJump" class="wide-select"></select>
+        <div class="teacher-grid">
+          <button id="jumpButton" class="button secondary-button" type="button">Jump to mission</button>
+          <button id="completeButton" class="button unlock-button" type="button">Mark current complete</button>
+          <button id="changeTeamButton" class="button secondary-button" type="button">Change team name</button>
+          <button id="teacherSoundButton" class="button secondary-button" type="button">Turn sound off</button>
+          <button id="resetButton" class="button danger-button" type="button">Reset all progress</button>
+          <button class="button ghost-button" data-close="teacherModal" type="button">Close menu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="treasureModal" class="modal treasure-modal" role="dialog" aria-modal="true" aria-labelledby="treasureTitle" hidden>
+    <div class="modal-card treasure-card">
+      <div id="confetti" class="confetti" aria-hidden="true"></div>
+      <div class="celebration-art">
+        <img src="assets/images/wooby-pirate.png" alt="Captain Wooby celebrating">
+        <div class="chest" aria-label="Open treasure chest"><div class="chest-lid"></div><div class="chest-box">✦</div></div>
+      </div>
+      <p class="modal-kicker">Adventure complete</p>
+      <h2 id="treasureTitle">TREASURE FOUND!</h2>
+      <p id="winningTeam" class="winning-team"></p>
+      <p class="prize-message">Show this screen to your teacher to receive your prize!</p>
+      <button id="treasureClose" class="button unlock-button" type="button">Celebrate on the map</button>
+    </div>
+  </div>
+
+  <script src="js/missions.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
