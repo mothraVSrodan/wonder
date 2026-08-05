@@ -22,7 +22,7 @@ const count = document.querySelector("#question-count");
 const progress = document.querySelector("#amber-progress");
 const progressArea = document.querySelector("#progress-area");
 const musicButton = document.querySelector("#music-toggle");
-const backgroundMusic = new Audio("public/audio/ooh-ah.mp3");
+const backgroundMusic = new Audio("public/audio/ooh-ah.mp3?v=2");
 backgroundMusic.loop = true;
 backgroundMusic.preload = "auto";
 backgroundMusic.volume = 0.35;
