@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17100c" />
+    <title>Cave Painting Emoji Quiz</title>
+    <link rel="stylesheet" href="app/globals.css" />
+  </head>
+  <body>
+    <main class="cave-world intro-mode" id="cave-world">
+      <div class="torch torch-left" aria-hidden="true"><span class="flame"></span><span class="torch-stick"></span></div>
+      <div class="torch torch-right" aria-hidden="true"><span class="flame"></span><span class="torch-stick"></span></div>
+      <div class="ambient" aria-hidden="true" id="ambient"></div>
+      <div class="cave-art cave-art-left" aria-hidden="true"><span class="hand">✋</span><span class="paint-dino">🦖</span><span class="fossil">🦴</span></div>
+      <div class="cave-art cave-art-right" aria-hidden="true"><span class="eggs">🥚 🥚</span><span class="paint-dino">🦕</span><span class="tracks">𓃰 · 𓃰</span></div>
+      <header class="game-header">
+        <div class="title-mark">
+          <img class="game-title-banner" src="public/game-title-banner.png" alt="Cave Painting Emoji Quiz" width="1600" height="400">
+        </div>
+        <div class="header-controls">
+          <div class="question-count" id="question-count" hidden></div>
+          <button class="music-toggle" id="music-toggle" type="button" aria-pressed="true" aria-label="Turn background music off">
+            <span aria-hidden="true">♫</span> Music On
+          </button>
+        </div>
+      </header>
+      <div id="game" class="game-slot"></div>
+      <div class="progress-area" id="progress-area" aria-label="0% complete">
+        <span>Expedition progress</span>
+        <div class="stone-progress"><div class="amber-progress" id="amber-progress"></div><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
